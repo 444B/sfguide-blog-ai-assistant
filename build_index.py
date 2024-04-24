@@ -10,7 +10,8 @@ from llama_index.llms.openai import OpenAI
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
-openai.api_key = "YOUR_OPENAI_API_KEY" 
+# openai.api_key = "YOUR_OPENAI_API_KEY" 
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 service_context = ServiceContext.from_defaults(llm=OpenAI())
 
